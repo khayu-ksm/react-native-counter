@@ -9,20 +9,20 @@ export default function App() {
   const increase = async () => {
     setCounter(counter + 1)
     try {
-      const jsonValue = JSON.stringify(counter)
+      const jsonValue = JSON.stringify(counter + 1)
       await AsyncStorage.setItem('counterValue', jsonValue)
     } catch (e) {
-      console.log(error);
+      console.log(e);
     }
   }
 
   const decrease = async () => {
     setCounter(counter - 1)
     try {
-      const jsonValue = JSON.stringify(counter)
+      const jsonValue = JSON.stringify(counter - 1)
       await AsyncStorage.setItem('counterValue', jsonValue)
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -35,7 +35,7 @@ export default function App() {
       const jsonValue = await AsyncStorage.getItem('counterValue')
       return jsonValue != null ? setCounter(JSON.parse(jsonValue)) : null;
     } catch (e) {
-      console.log(error);
+      console.log(e);
     }
   }
 
