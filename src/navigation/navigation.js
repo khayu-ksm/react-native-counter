@@ -1,27 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from '../screen/home/home'
-import CreateNoteScreen from "../screen/createNote/createNote";
-import CreateTaskScreen from '../screen/createTask/createTask';
+import Home from "../screen/home/home";
+import CreateNote from "../screen/createNote/createNote";
+import CreateTask from "../screen/createTask/createTask";
+import NoteDetails from "../screen/noteDetails/noteDetails";
+import NoteProvider from "../contexts/NoteProvider";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 function MyStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        contentStyle: { backgroundColor: '#7c6dec' }
-      }}
-      >
-        <Stack.Screen name='Home' component={HomeScreen} />
-        <Stack.Screen name='CreateNote' component={CreateNoteScreen} />
-        <Stack.Screen name='CreateTask' component={CreateTaskScreen} />
-      </Stack.Navigator>
-      <StatusBar style='dark' />
+      <NoteProvider>
+        <Stack.Navigator
+          screenOptions={{
+            cardStyle: { backgroundColor: "#7c6dec" },
+          }}
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="CreateNote" component={CreateNote} />
+          <Stack.Screen name="NoteDetails" component={NoteDetails} />
+          <Stack.Screen name="CreateTask" component={CreateTask} />
+        </Stack.Navigator>
+        <StatusBar style="dark" />
+      </NoteProvider>
     </NavigationContainer>
-  )
+  );
 }
 
 export default MyStack;

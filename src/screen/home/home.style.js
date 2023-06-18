@@ -1,100 +1,97 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    paddingHorizontal: 8
+  container: {
+    flex: 1,
+  },
+  headingContainer: {
+    paddingHorizontal: 20,
   },
   headingText: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: 'white',
-    marginVertical: 16
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+    marginVertical: 16,
   },
   subHeading: {
     marginVertical: 10,
-    color: 'white'
+    color: "white",
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center'
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
   },
   button: {
-    width: 170,
+    width: '40%',
     padding: 12,
-    marginHorizontal: 12,
-    backgroundColor: '#3a2f99',
-    borderRadius: 8,
-    borderColor: '#3a2f99',
-    borderWidth: 2
+    backgroundColor: "#3a2f99",
+    borderRadius: 15,
+    borderColor: "#3a2f99",
+    borderWidth: 2,
   },
   buttonPressed: {
-    opacity: 0.25
+    opacity: 0.25,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center'
+    fontWeight: "bold",
+    textAlign: "center",
   },
   input: {
-    marginHorizontal: 16,
     marginTop: 25,
     padding: 16,
-    borderColor: '#adb5bd',
+    borderColor: "#adb5bd",
     borderWidth: 1,
-    borderRadius: 8,
-    backgroundColor: '#f0f1f5'
+    borderRadius: 15,
+    backgroundColor: "#f0f1f5",
+  },
+  noteContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+  addBtn: {
+    position: "absolute",
+    bottom: 60,
+    right: 40,
   },
   noteItem: {
-    flex: 1,
-    margin: 16,
-    borderRadius: 8,
-    // elevation: 4,
-    // shadowColor: 'black',
-    // shadowOpacity: 0.5,
-    // shadowOffset: { width: 0, height: 2 },
-    // shadowRadius: 8,
-  },
-  innerNoteContainer: {
-    flex: 1,
-    padding: 16,
+    width: '47%',
     backgroundColor: 'white',
-    borderRadius: 8,
-  },
-  notePressed: {
-    opacity: 0.5
+    marginTop: 16,
+    borderRadius: 10,
+    padding: 16,
   },
   noteTitle: {
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 18,
     marginBottom: 8
   },
+  taskContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
   taskItem: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     margin: 16,
     paddingHorizontal: 16,
     paddingVertical: 20,
-    borderRadius: 8
+    borderRadius: 8,
   },
   taskHeading: {
-    marginHorizontal: 16,
     marginTop: 20,
     fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white'
+    fontWeight: "bold",
+    color: "white",
   },
-  addButton: {
-    width: 100,
-    marginHorizontal: 16,
-    padding: 16,
-    backgroundColor: '#1b7979',
+  taskItem: {
+    backgroundColor: 'white',
+    marginTop: 20,
+    paddingVertical: 20,
     borderRadius: 50,
-    marginVertical: 20
-  },
-  addButtonText: {
-    color: 'white',
-    fontWeight: 'bold'
+    paddingLeft: 50
   }
-})
+});
 
 export default styles;

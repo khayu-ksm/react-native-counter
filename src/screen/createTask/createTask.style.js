@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 150
+  },
   creteTaskText: {
     marginHorizontal: 16,
     fontSize: 26,
@@ -22,7 +26,8 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#1b7979',
     borderRadius: 50,
-    marginVertical: 20
+    marginTop: 20,
+    alignSelf: 'center'
   },
   addTaskButtonText: {
     color: 'white',

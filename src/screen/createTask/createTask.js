@@ -1,22 +1,42 @@
-import { Text, View, TextInput, Pressable, SafeAreaView } from "react-native";
-import styles from "./createTask.style";
+import { Text, View, TextInput, Pressable } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function CreateTaskScreen() {
+import styles from "./createTask.style";
+import { useState } from "react";
+
+const CreateTask = ({ navigation }) => {
+  const [task, setTask] = useState('');
+
+  const onPressHandler = async() => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('tasks');
+      const savedTasks = jsonValue != null ? JSON.parse(jsonValue) : [];
+      const newTask = { id: Date.now(), task };
+      savedTasks.push(newTask);
+      await AsyncStorage.setItem('tasks', JSON.stringify(savedTasks));
+      navigation.navigate('Home');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
-    <SafeAreaView>
       <View style={styles.container}>
         <View>
           <Text style={styles.creteTaskText}>New Task</Text>
         </View>
         <View>
-          <TextInput placeholder="Enter Task" style={styles.taskInput} />
+        <TextInput
+          placeholder="Enter Task"
+          style={styles.taskInput}
+          onChangeText={(value) => setTask(value)}
+        />
         </View>
-        <Pressable style={styles.addTaskButton}>
-          <Text style={styles.addTaskButtonText}>Add New Note</Text>
+        <Pressable style={styles.addTaskButton} onPress={onPressHandler}>
+          <Text style={styles.addTaskButtonText}>Add New Task</Text>
         </Pressable>
       </View>
-    </SafeAreaView>
   )
 };
 
-export default CreateTaskScreen;
+export default CreateTask;
