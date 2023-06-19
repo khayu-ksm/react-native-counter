@@ -5,13 +5,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import IconBtn from "../../components/IconBtn";
 import styles from "./home.style";
-import { useNotes } from "../../contexts/NoteProvider";
 
 const Home = ({ navigation }) => {
   const isFocused = useIsFocused();
   const [tabToggle, setTabToggle] = useState(false);
-  const { notes, setNotes } = useNotes();
-  // const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([]);
   const [tasks, setTasks] = useState([]);
 
   const noteTab = () => {
@@ -23,19 +21,19 @@ const Home = ({ navigation }) => {
   };
 
   useEffect(() => {
-    // getNotes();
+    getNotes();
     getTasks();
   }, [isFocused]);
 
-  // const getNotes = async () => {
-  //   try {
-  //     const jsonValue = await AsyncStorage.getItem("notes");
-  //     const savedNotes = jsonValue != null ? JSON.parse(jsonValue) : [];
-  //     setNotes(savedNotes);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const getNotes = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("notes");
+      const savedNotes = jsonValue != null ? JSON.parse(jsonValue) : [];
+      setNotes(savedNotes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getTasks = async () => {
     try {

@@ -8,7 +8,7 @@ import { TextInput } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-import styles from "./createNote.style";
+import styles from "./createNote.style"
 
 function CreateNote({ navigation }) {
   const [title, setTitle] = useState("");

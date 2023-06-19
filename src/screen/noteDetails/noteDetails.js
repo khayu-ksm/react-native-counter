@@ -3,17 +3,19 @@ import IconBtn from "../../components/IconBtn";
 import { useState, useContext } from "react";
 import DeleteModal from "../../components/DeleteModal";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNotes } from "../../contexts/NoteProvider";
 import styles from "./noteDetails.style";
 
-const NoteDetails = (props, {navigation}) => {
+const NoteDetails = (props) => {
   const { note } = props.route.params;
   const [modalVisible, setModalVisible] = useState(false);
-  const { setNotes } = useNotes();
 
   const openDeleteModal = () => {
     setModalVisible(true);
   };
+
+  const openEditScreen = () => {
+    props.navigation.navigate('EditNote', {note});
+  }
 
   const cancelNote = () => {
     setModalVisible(false);
@@ -25,7 +27,6 @@ const NoteDetails = (props, {navigation}) => {
     if (result !== null) notes = JSON.parse(result)
 
     const newNotes = notes.filter(n => n.id !== note.id)
-    setNotes(newNotes);
     await AsyncStorage.setItem('notes', JSON.stringify(newNotes))
     navigation.navigate('Home');
     setModalVisible(false);
@@ -44,7 +45,7 @@ const NoteDetails = (props, {navigation}) => {
           size={30}
           color="white"
           style={styles.editButton}
-          // onPress={}
+          onPress={() => openEditScreen(note)}
         />
         <IconBtn
           iconName="trash"

@@ -6,14 +6,13 @@ import Home from "../screen/home/home";
 import CreateNote from "../screen/createNote/createNote";
 import CreateTask from "../screen/createTask/createTask";
 import NoteDetails from "../screen/noteDetails/noteDetails";
-import NoteProvider from "../contexts/NoteProvider";
+import EditNote from "../screen/editNote/editNote";
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
     <NavigationContainer>
-      <NoteProvider>
         <Stack.Navigator
           screenOptions={{
             cardStyle: { backgroundColor: "#7c6dec" },
@@ -23,9 +22,9 @@ function MyStack() {
           <Stack.Screen name="CreateNote" component={CreateNote} />
           <Stack.Screen name="NoteDetails" component={NoteDetails} />
           <Stack.Screen name="CreateTask" component={CreateTask} />
+          <Stack.Screen name="EditNote" component={EditNote} />
         </Stack.Navigator>
         <StatusBar style="dark" />
-      </NoteProvider>
     </NavigationContainer>
   );
 }
