@@ -7,6 +7,7 @@ import CreateNote from "../screen/createNote/createNote";
 import CreateTask from "../screen/createTask/createTask";
 import NoteDetails from "../screen/noteDetails/noteDetails";
 import EditNote from "../screen/editNote/editNote";
+import EditTask from "../screen/editTask/editTask";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ function MyStack() {
           <Stack.Screen name="CreateNote" component={CreateNote} />
           <Stack.Screen name="NoteDetails" component={NoteDetails} />
           <Stack.Screen name="CreateTask" component={CreateTask} />
+          <Stack.Screen name="EditTask" component={EditTask} />
           <Stack.Screen name="EditNote" component={EditNote} />
         </Stack.Navigator>
         <StatusBar style="dark" />

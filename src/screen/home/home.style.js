@@ -90,7 +90,19 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingVertical: 20,
     borderRadius: 50,
-    paddingLeft: 50
+    paddingLeft: 50,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  taskDeleteBtn: {
+    position: 'absolute',
+    right: 25,
+  },
+  taskEditBtn: {
+    position: 'absolute',
+    right: 60,
   }
 });
 

@@ -1,7 +1,7 @@
 import { Modal, Text, Button, View } from "react-native";
 import { StyleSheet } from "react-native";
 
-const DeleteModal = ({ visible, deleteNote, cancelNote }) => {
+const DeleteModal = ({ visible, deleteOnPress, cancelOnPress }) => {
   return (
     <Modal
       visible={visible}
@@ -11,8 +11,8 @@ const DeleteModal = ({ visible, deleteNote, cancelNote }) => {
         <View style={styles.innerContainer}>
           <Text style={styles.text}>Are you sure you want to delete it?</Text>
           <View style={styles.btnContainer}>
-            <Button title="Delete" onPress={deleteNote}/>
-            <Button title="Cancel" onPress={cancelNote}/>
+            <Button title="Delete" onPress={deleteOnPress} />
+            <Button title="Cancel" onPress={cancelOnPress} />
           </View>
         </View>
       </View>

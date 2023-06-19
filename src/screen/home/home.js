@@ -1,7 +1,14 @@
-import { useState, useEffect, useContext } from "react";
-import { Text, View, Pressable, TextInput, FlatList } from "react-native";
+import { useState, useEffect } from "react";
+import {
+  Text,
+  View,
+  Pressable,
+  TextInput,
+  FlatList,
+} from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import IconBtn from "../../components/IconBtn";
 import styles from "./home.style";
@@ -54,8 +61,12 @@ const Home = ({ navigation }) => {
   };
 
   const noteDetailsHandler = (note) => {
-    navigation.navigate('NoteDetails', {note})
-  }
+    navigation.navigate("NoteDetails", { note });
+  };
+
+  const taskEditHandler = (taskData) => {
+    navigation.navigate("EditTask", { taskData });
+  };
 
   const renderNotes = (itemData) => {
     return (
@@ -76,9 +87,17 @@ const Home = ({ navigation }) => {
 
   const renderTasks = (itemData) => {
     return (
-      <Pressable style={styles.taskItem}>
-        <View>
-          <Text>{itemData.item.task}</Text>
+      <Pressable
+        style={styles.taskItem}
+        onPress={() => taskEditHandler(itemData.item)}
+      >
+        <View style={styles.iconContainer}>
+          <BouncyCheckbox
+            text={itemData.item.task}
+            textStyle={{ color: 'black' }}
+            fillColor="#3a2f99"
+          />
+          {/* <Text>{itemData.item.task}</Text> */}
         </View>
       </Pressable>
     );

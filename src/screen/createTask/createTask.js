@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { Text, View, TextInput, Pressable } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import styles from "./createTask.style";
-import { useState } from "react";
 
 const CreateTask = ({ navigation }) => {
   const [task, setTask] = useState('');
@@ -27,6 +27,7 @@ const CreateTask = ({ navigation }) => {
         </View>
         <View>
         <TextInput
+          value={task}
           placeholder="Enter Task"
           style={styles.taskInput}
           onChangeText={(value) => setTask(value)}

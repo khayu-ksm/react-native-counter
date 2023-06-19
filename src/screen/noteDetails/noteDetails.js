@@ -28,7 +28,7 @@ const NoteDetails = (props) => {
 
     const newNotes = notes.filter(n => n.id !== note.id)
     await AsyncStorage.setItem('notes', JSON.stringify(newNotes))
-    navigation.navigate('Home');
+    props.navigation.navigate('Home');
     setModalVisible(false);
   }
 
@@ -55,7 +55,7 @@ const NoteDetails = (props) => {
           onPress={openDeleteModal}
         />
       </View>
-      <DeleteModal visible={modalVisible} cancelNote={cancelNote} deleteNote={deleteNote}/>
+      <DeleteModal visible={modalVisible} cancelOnPress={cancelNote} deleteOnPress={deleteNote}/>
     </View>
   );
 };

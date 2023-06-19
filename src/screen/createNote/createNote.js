@@ -1,12 +1,7 @@
 import { useState } from "react";
-import {
-  Text,
-  View,
-  Pressable,
-} from "react-native";
+import { Text, View, Pressable } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
 
 import styles from "./createNote.style"
 
